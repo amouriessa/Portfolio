@@ -5,12 +5,12 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setStatus("");
 
-    const form = new FormData(e.target);
+    const form = new FormData(e.currentTarget);
     const data = {
       name: form.get("name"),
       email: form.get("email"),
@@ -26,7 +26,7 @@ export default function ContactForm() {
 
     if (res.ok) {
       setStatus("success");
-      e.target.reset();
+      e.currentTarget.reset();
     } else {
       setStatus("error");
     }
