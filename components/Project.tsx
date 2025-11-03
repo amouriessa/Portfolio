@@ -36,7 +36,7 @@ export default function Projects() {
       ],
       github: "https://github.com/amouriessa/Manajemen-Penilaian.git",
       website: "",
-      video: "https://youtu.be/OVCrY1ljtSk?si=AJFvzMdGox1gtgxf",
+      video: "",
     },
 
     {
