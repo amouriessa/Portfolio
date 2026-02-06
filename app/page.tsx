@@ -9,8 +9,10 @@ import Projects from "@/components/Project";
 import Certifications from "@/components/Certification";
 import Achievments from "@/components/Achievment";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Github, Linkedin, Instagram, Mail, } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 import ContactForm from "@/components/Contact";
+import WorkExperience from "@/components/fragments/WorkExperience";
+import SkillTech from "@/components/fragments/SkillTech";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,7 +68,7 @@ export default function Home() {
               start: "top 85%",
               toggleActions: "restart none restart reset",
             },
-          }
+          },
         );
       }
 
@@ -83,7 +85,7 @@ export default function Home() {
               start: "top 85%",
               toggleActions: "restart none restart reset",
             },
-          }
+          },
         );
       }
     });
@@ -102,7 +104,7 @@ export default function Home() {
           start: "top 90%",
           toggleActions: "restart none restart reset",
         },
-      }
+      },
     );
 
     // Button
@@ -119,7 +121,7 @@ export default function Home() {
           start: "top 85%",
           toggleActions: "restart none restart reset",
         },
-      }
+      },
     );
 
     // Profile Card
@@ -136,7 +138,7 @@ export default function Home() {
           start: "top 80%",
           toggleActions: "restart none restart reset",
         },
-      }
+      },
     );
 
     return () => ScrollTrigger.killAll();
@@ -232,7 +234,7 @@ export default function Home() {
           <div className="w-full min-h-screen mx-auto max-w-5xl bg-white/10 backdrop-blur-md rounded-2xl border border-cyan-400 shadow-[0_0_25px_2px_rgba(34,211,238,0.5)] p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-start gap-10">
               <div className="w-full md:w-1/2">
-                <div className="hidden md:block absolute top-0 right-0 h-full z-40">
+                <div className="hidden md:block absolute top-0 -right-32 h-full z-40">
                   <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
                 </div>
               </div>
@@ -281,264 +283,10 @@ export default function Home() {
 
           <div className="mt-12 w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* WORK EXPERIENCE */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-cyan-400 shadow-[0_0_25px_2px_rgba(34,211,238,0.5)] p-6 md:p-8 text-white">
-              <h3 className="text-2xl font-bold mb-8">Work Experience</h3>
-
-              <div className="relative">
-                <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 h-full w-[3px] bg-gradient-to-b from-[#00c1ff] via-[#07c6ff] to-[#c137ff] shadow-[0_0_12px_rgba(0,193,255,0.5)] rounded-full"></div>
-
-                <div className="flex flex-col gap-14">
-                  <div className="relative flex flex-col md:flex-row md:justify-start md:pr-10">
-                    <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(0,255,255,0.7)]"></div>
-
-                    <div className="w-full md:w-1/2 md:text-right">
-                      <div className="bg-white/10 border border-cyan-400 backdrop-blur-md rounded-xl p-5 shadow-[0_0_12px_2px_rgba(0,193,255,0.4)]">
-                        <h4 className="text-sm font-semibold">
-                          Cybersecurity Teaching Assistant
-                        </h4>
-                        <p className="text-xs text-[#07c6ff]">
-                          UMY • Yogyakarta, Indonesia
-                        </p>
-                        <p className="text-xs text-white/70">
-                          Feb 2024 - Jul 2024
-                        </p>
-                        <p className="mt-2 text-xs text-white/80">
-                          Responsible as a Teaching Assistant for two classes
-                          (approximately 70 students), including managing
-                          learning sessions and class administration (attendance
-                          and assessment).
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="relative flex flex-col md:flex-row md:justify-end md:pl-10">
-                    <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#c137ff] shadow-[0_0_10px_rgba(193,55,255,0.7)]"></div>
-
-                    <div className="w-full md:w-1/2">
-                      <div className="bg-white/10 border border-[#c137ff] backdrop-blur-md rounded-xl p-5 shadow-[0_0_12px_2px_rgba(193,55,255,0.4)]">
-                        <h4 className="text-sm font-semibold">
-                          Front-End Developer Intern
-                        </h4>
-                        <p className="text-xs text-[#c137ff]">
-                          PT. Razen Teknologi • Yogyakarta, Indonesia
-                        </p>
-                        <p className="text-xs text-white/70">
-                          Oct 2024 - Dec 2024
-                        </p>
-                        <p className="mt-2 text-xs text-white/80">
-                          Responsible for an important role in documenting
-                          system flows (flowcharts/sequence diagrams),
-                          developing user-friendly front-ends, and conducting
-                          integration tests to ensure the functionality and
-                          quality of interactions between system components.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <WorkExperience />
 
             {/* SKILLS & TECHNOLOGIES */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-cyan-400 shadow-[0_0_25px_2px_rgba(34,211,238,0.5)] p-6 md:p-8 text-white">
-              <h3 className="text-2xl font-bold mb-6">Skills & Technologies</h3>
-
-              <div className="space-y-7">
-                {/* FRONT END */}
-                <div>
-                  <h4 className="text-base font-semibold mb-4 text-cyan-300">
-                    Front End
-                  </h4>
-
-                  <div className="flex flex-wrap gap-6">
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#07c6ff]/60 hover:bg-cyan-500 rounded-xl backdrop-blur-md border border-white/10 shadow-[0_0_12px_rgba(0,193,255,0.25)]">
-                        <img
-                          src="/icons/nextjs.svg"
-                          className="w-5 h-5 invert"
-                        />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">
-                        Next.js
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#07c6ff]/60 hover:bg-cyan-500 rounded-xl backdrop-blur-md border border-white/10 shadow-[0_0_12px_rgba(0,193,255,0.25)]">
-                        <img
-                          src="/icons/react.svg"
-                          className="w-5 h-5 invert"
-                        />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">React</span>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#07c6ff]/60 hover:bg-cyan-500 rounded-xl backdrop-blur-md border border-white/10 shadow-[0_0_12px_rgba(0,193,255,0.25)]">
-                        <img
-                          src="/icons/typescript.svg"
-                          className="w-5 h-5 invert"
-                        />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">
-                        TypeScript
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#07c6ff]/60 hover:bg-cyan-500 rounded-xl backdrop-blur-md border border-white/10 shadow-[0_0_12px_rgba(0,193,255,0.25)]">
-                        <img
-                          src="/icons/javascript.svg"
-                          className="w-5 h-5 invert"
-                        />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">
-                        JavaScript
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#07c6ff]/60 hover:bg-cyan-500 rounded-xl backdrop-blur-md border border-white/10 shadow-[0_0_12px_rgba(0,193,255,0.25)]">
-                        <img
-                          src="/icons/tailwindcss.svg"
-                          className="w-5 h-5 invert"
-                        />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">
-                        Tailwind
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#07c6ff]/60 hover:bg-cyan-500 rounded-xl backdrop-blur-md border border-white/10 shadow-[0_0_12px_rgba(0,193,255,0.25)]">
-                        <img
-                          src="/icons/bootstrap.svg"
-                          className="w-5 h-5 invert"
-                        />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">
-                        Bootstrap
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* BACK END */}
-                <div>
-                  <h4 className="text-base font-semibold mb-4 text-purple-300">
-                    Back End
-                  </h4>
-
-                  <div className="flex flex-wrap gap-6">
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#c137ff]/60 hover:bg-purple-500 rounded-xl backdrop-blur-md border border-[#c137ff]/40 shadow-[0_0_18px_3px_rgba(193,55,255,0.35)]">
-                        <img
-                          src="/icons/laravel.svg"
-                          className="w-5 h-5 invert"
-                        />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">
-                        Laravel
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#c137ff]/60 hover:bg-purple-500 rounded-xl backdrop-blur-md border border-[#c137ff]/40 shadow-[0_0_18px_3px_rgba(193,55,255,0.35)]">
-                        <img src="/icons/php.svg" className="w-5 h-5 invert" />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">PHP</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* DATABASE */}
-                <div>
-                  <h4 className="text-base font-semibold mb-4 text-pink-300">
-                    Database
-                  </h4>
-
-                  <div className="flex flex-wrap gap-6">
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#ff6bda]/60 hover:bg-pink-500 rounded-xl backdrop-blur-md border border-[#ff6bda]/40 shadow-[0_0_18px_3px_rgba(255,107,218,0.35)]">
-                        <img
-                          src="/icons/mysql.svg"
-                          className="w-5 h-5 invert"
-                        />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">MySql</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* DESIGN TOOLS */}
-                <div>
-                  <h4 className="text-base font-semibold mb-4 text-yellow-300">
-                    Design Tools
-                  </h4>
-
-                  <div className="flex flex-wrap gap-6">
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#ffd54a]/60 hover:bg-[#ffd54a] rounded-xl backdrop-blur-md border border-[#ffd54a]/40 shadow-[0_0_18px_3px_rgba(255,213,74,0.35)]">
-                        <img
-                          src="/icons/figma.svg"
-                          className="w-5 h-5 invert"
-                        />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">Figma</span>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#ffd54a]/60 hover:bg-[#ffd54a] rounded-xl backdrop-blur-md border border-[#ffd54a]/40 shadow-[0_0_18px_3px_rgba(255,213,74,0.35)]">
-                        <img
-                          src="/icons/canva.svg"
-                          className="w-5 h-5 invert"
-                        />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">Canva</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* DEVELOPMENT TOOLS */}
-                <div>
-                  <h4 className="text-base font-semibold mb-4 text-green-300">
-                    Development Tools
-                  </h4>
-
-                  <div className="flex flex-wrap gap-6">
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#4cff79]/60 hover:bg-[#4cff79] rounded-xl backdrop-blur-md border border-[#4cff79]/40 shadow-[0_0_18px_3px_rgba(76,255,121,0.35)]">
-                        <img src="/icons/git.svg" className="w-5 h-5 invert" />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">Git</span>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#4cff79]/60 hover:bg-[#4cff79] rounded-xl backdrop-blur-md border border-[#4cff79]/40 shadow-[0_0_18px_3px_rgba(76,255,121,0.35)]">
-                        <img
-                          src="/icons/github.svg"
-                          className="w-5 h-5 invert"
-                        />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">Github</span>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <div className="p-3 bg-[#4cff79]/60 hover:bg-[#4cff79] rounded-xl backdrop-blur-md border border-[#4cff79]/40 shadow-[0_0_18px_3px_rgba(76,255,121,0.35)]">
-                        <img
-                          src="/icons/postman.svg"
-                          className="w-5 h-5 invert"
-                        />
-                      </div>
-                      <span className="text-xs mt-2 text-white/70">
-                        Postman
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <SkillTech />
           </div>
         </section>
         <section

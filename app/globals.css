@@ -155,3 +155,15 @@
   box-sizing: content-box;
   border-radius: inherit;
 }
+
+.no-scrollbar {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -ms-overflow-style: none;   /* IE & Edge lama */
+  scrollbar-width: none;      /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari, Edge */
+}
+
