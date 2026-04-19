@@ -150,11 +150,11 @@ export default function Home() {
           id="home"
           className="min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-between px-4 md:px-8 pt-16 md:pt-20"
         >
-          <div className="max-w-3xl text-center md:text-left mb-12 md:mb-0 w-full md:w-auto">
+          <div className="max-w-2xl text-center md:text-left mb-12 md:mb-0 w-full md:w-auto">
             <motion.div
               ref={badgeRef}
               initial={{ opacity: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm mb-14"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm mb-10"
             >
               <span className="h-2.5 w-2.5 rounded-full bg-[#00c1ffff] animate-pulse"></span>
               <p className="text-sm md:text-base tracking-[0.25em] text-white">
@@ -171,9 +171,11 @@ export default function Home() {
 
             <p
               ref={subtitleRefHome}
-              className="text-sm font-medium font-mono sm:text-sm md:text-lg mb-8 max-w-xl text-white"
+              className="text-xs font-medium font-mono sm:text-sm md:text-lg mb-8 max-w-xl text-white"
             >
-              Web and Front-End Developer.
+              Making technology easier to use,
+              <br />
+              not harder to understand.
             </p>
 
             <motion.a
@@ -192,8 +194,8 @@ export default function Home() {
             className="w-full md:w-1/2 flex items-center justify-center mt-8 md:mt-0 px-4 md:px-0"
           >
             <ProfileCard
-              name="Bagas Saras"
-              title="Web Developer"
+              name="Saras"
+              title="Aspiring Software Engineer"
               handle="amouriessa"
               status="Online"
               contactText="Contact Me"
@@ -234,7 +236,7 @@ export default function Home() {
           <div className="w-full min-h-screen mx-auto max-w-5xl bg-white/10 backdrop-blur-md rounded-2xl border border-cyan-400 shadow-[0_0_25px_2px_rgba(34,211,238,0.5)] p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-start gap-10">
               <div className="w-full md:w-1/2">
-                <div className="hidden md:block absolute top-0 -right-32 h-full z-40">
+                <div className="hidden md:block absolute top-0 -right-10 h-full z-40">
                   <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
                 </div>
               </div>
@@ -242,23 +244,18 @@ export default function Home() {
               <div className="w-full md:w-1/2 text-white m-auto">
                 <h2 className="text-2xl font-bold mb-4">Summary</h2>
                 <p className="text-base leading-relaxed">
-                  Full-Stack Web Developer focused on solutions and primarily
-                  focused on modern Front-End. I am a Bachelor of Computer
-                  Science (Information Technology major) graduate with Cum Laude
-                  honors from{" "}
-                  <span className="text-[#07c6ff] font-bold">UMY</span>. My core
-                  expertise lies in React.js, Next.js, and TypeScript, supported
-                  by mastery of interactive styling (HTML, CSS, JavaScript). My
-                  Back-End foundation (Laravel) has been proven through my Final
-                  Project Website Management System, a full-stack solution that
-                  successfully digitized and simplified progress monitoring. My
-                  end-to-end capabilities are validated by professional
-                  certifications.
+                  Fullstack Web Developer with a strong focus on frontend
+                  development and user experience. I build digital solutions
+                  that are simple, usable, and impactful. I have experience
+                  working with React, Next.js, TypeScript, and Laravel, and have
+                  developed full-stack systems to solve real-world problems.
+                  Currently, I’m exploring machine learning and technologies
+                  that can integrate more directly with everyday life.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mt-6">
                   <span className="px-4 py-1.5 rounded-full text-sm font-semibold text-white border border-cyan-400 bg-white/5 shadow-[0_0_12px_2px_rgba(0,255,255,0.4)]">
-                    Front-End
+                    Front-End Focused
                   </span>
 
                   <span className="px-4 py-1.5 rounded-full text-sm font-semibold text-white border border-[#c137ff] bg-white/5 shadow-[0_0_12px_2px_rgba(193,55,255,0.4)]">

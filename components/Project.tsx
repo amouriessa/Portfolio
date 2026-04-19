@@ -34,6 +34,7 @@ export default function Projects() {
         "REST API",
         "JavaScript",
       ],
+      status: "🚀 Deploying",
       github: "https://github.com/amouriessa/Manajemen-Penilaian.git",
       website: "",
       video: "",
@@ -41,10 +42,29 @@ export default function Projects() {
 
     {
       id: 2,
+      title: "Pre-Order E-Commerce Website with Next.js & Node.js",
+      longDesc:
+        "This project is a pre-order based e-commerce website designed to replace manual ordering processes that previously relied on competitive Google Form submissions. The system streamlines the ordering flow, providing a more structured, fair, and user-friendly experience for customers. Built with a modern tech stack, the platform focuses on usability, responsiveness, and efficient order management.",
+      image: "/images/project2.png",
+      role: [
+        "Developed the front-end using Next.js to create a responsive and user-friendly interface.",
+        "Built the back-end using Node.js to handle order processing and data management.",
+        "Designed the ordering flow to improve user experience compared to the previous manual Google Form system.",
+        "Implemented features to support structured and efficient pre-order management.",
+      ],
+      tech: ["Next.js", "Node.js", "TailwindCSS", "TypeScript", "Midtrans"],
+      status: "🚧 In Development",
+      github: "https://github.com/amouriessa/Deloise-Frontend.git",
+      website: "",
+      video: "",
+    },
+
+    {
+      id: 3,
       title: "Laravel-based Sidorejo Village Letter Request Information System",
       longDesc:
         "As the lead full-stack developer for this capstone project, I was responsible for the end-to-end development of a system designed to streamline the process of submitting letter requests for births and deaths in Sidorejo Village. Collaborating in a two-person team, I managed the entire web development lifecycle, from back-end logic to front-end implementation.",
-      image: "/images/project2.png",
+      image: "/images/project3.png",
       role: [
         "Developing both the front-end interface and the back-end infrastructure using the Laravel framework.",
         "Designing and implementing the database schema and API to ensure smooth data flow and efficient system performance.",
@@ -64,11 +84,11 @@ export default function Projects() {
     },
 
     {
-      id: 3,
+      id: 4,
       title: "Village Administration & Resident Information System",
       longDesc:
         "As the Front-End Developer in a 3-person team, I contributed to the development of a comprehensive system designed to streamline village administrative tasks, including managing resident data, births, and deaths. Our collaborative internship project allowed me to apply my skills across various stages of the development lifecycle.",
-      image: "/images/project3.png",
+      image: "/images/project4.png",
       role: [
         "System Documentation: I was responsible for documenting the system's workflows by creating detailed flowcharts and sequence diagrams to ensure clear communication and logical system design.",
         "Front-End Development: I built a clean, responsive, and user-friendly interface that served as the primary interaction point for the end-user.",
@@ -87,7 +107,6 @@ export default function Projects() {
       video: "",
     },
   ];
-
 
   return (
     <>
@@ -130,6 +149,15 @@ export default function Projects() {
 
               <h3 className="text-lg font-bold text-white">{item.title}</h3>
               <p className="text-white/70 text-sm mt-2">{short}</p>
+
+              {/* STATUS */}
+              {item.status && (
+                <div className="mt-2">
+                  <span className="px-3 py-1 text-xs rounded-full bg-white/5 border border-[#c137ff] text-[#c137ff] shadow-[0_0_8px_rgba(34,211,238,0.4)]">
+                    {item.status}
+                  </span>
+                </div>
+              )}
 
               {/* Badges */}
               <div className="flex flex-wrap gap-2 mt-3">

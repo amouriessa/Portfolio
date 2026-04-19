@@ -64,17 +64,19 @@ export default function WorkExperience() {
               <div className="w-full md:w-1/2 md:text-right">
                 <div className="bg-white/10 border border-cyan-400 backdrop-blur-md rounded-xl p-5 shadow-[0_0_12px_2px_rgba(0,193,255,0.4)]">
                   <h4 className="text-sm font-semibold">
-                    Cybersecurity Teaching Assistant
+                    Front-End Developer Intern
                   </h4>
                   <p className="text-xs text-[#07c6ff]">
-                    UMY • Yogyakarta, Indonesia
+                    Telkom Indonesia • Kebayoran Baru, Indonesia
                   </p>
-                  <p className="text-xs text-white/70">Feb 2024 - Jul 2024</p>
+                  <p className="text-xs text-white/70">Nov 2025 - Present</p>
                   <p className="mt-2 text-xs text-white/80">
-                    Responsible as a Teaching Assistant for two classes
-                    (approximately 70 students), including managing learning
-                    sessions and class administration (attendance and
-                    assessment).
+                    Contributed to maintaining and enhancing a production-level
+                    education web (Pijar Sekolah) by fixing bugs, implementing UI
+                    improvements, and updating components within a modular,
+                    component-based architecture. Collaborated in a Scrum team
+                    using GitLab and Taiga to deliver responsive interfaces
+                    based on product requirements.
                   </p>
                 </div>
               </div>
@@ -105,23 +107,20 @@ export default function WorkExperience() {
 
             <div className="relative flex flex-col md:flex-row md:justify-start md:pr-10">
               <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(0,255,255,0.7)]"></div>
-
               <div className="w-full md:w-1/2 md:text-right">
                 <div className="bg-white/10 border border-cyan-400 backdrop-blur-md rounded-xl p-5 shadow-[0_0_12px_2px_rgba(0,193,255,0.4)]">
                   <h4 className="text-sm font-semibold">
-                    Front-End Developer Intern
+                    Cybersecurity Teaching Assistant
                   </h4>
                   <p className="text-xs text-[#07c6ff]">
-                    Telkom Indonesia • Kebayoran Baru, Indonesia
+                    UMY • Yogyakarta, Indonesia
                   </p>
-                  <p className="text-xs text-white/70">Nov 2025 - Present</p>
+                  <p className="text-xs text-white/70">Feb 2024 - Jul 2024</p>
                   <p className="mt-2 text-xs text-white/80">
-                    Contributed to maintaining and enhancing a production-level
-                    education dashboard by fixing bugs, implementing UI
-                    improvements, and updating components within a modular,
-                    component-based architecture. Collaborated in a Scrum team
-                    using GitLab and Taiga to deliver responsive interfaces
-                    based on product requirements.
+                    Responsible as a Teaching Assistant for two classes
+                    (approximately 70 students), including managing learning
+                    sessions and class administration (attendance and
+                    assessment).
                   </p>
                 </div>
               </div>
