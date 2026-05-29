@@ -195,7 +195,7 @@ export default function Home() {
           >
             <ProfileCard
               name="Saras"
-              title="Aspiring Software Engineer"
+              title="Front-End Developer"
               handle="amouriessa"
               status="Online"
               contactText="Contact Me"
@@ -244,13 +244,13 @@ export default function Home() {
               <div className="w-full md:w-1/2 text-white m-auto">
                 <h2 className="text-2xl font-bold mb-4">Summary</h2>
                 <p className="text-base leading-relaxed">
-                  Fullstack Web Developer with a strong focus on frontend
-                  development and user experience. I build digital solutions
-                  that are simple, usable, and impactful. I have experience
-                  working with React, Next.js, TypeScript, and Laravel, and have
-                  developed full-stack systems to solve real-world problems.
-                  Currently, I’m exploring machine learning and technologies
-                  that can integrate more directly with everyday life.
+                  Front-End Developer with hands-on experience building and
+                  maintaining production web applications using React.js,
+                  Next.js, and TypeScript. Experienced in REST API integration,
+                  state management, and responsive UI development within Agile
+                  teams. I enjoy building maintainable digital products that
+                  solve real operational problems while keeping the user
+                  experience clean and intuitive.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mt-6">

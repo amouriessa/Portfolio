@@ -6,6 +6,14 @@ export default function Certifications() {
   const certs = [
     {
       id: 1,
+      title: "Front-End Developer Internship Certification",
+      issuer: "Telkom Indonesia",
+      year: "2026",
+      image: "/images/Kemnaker.png",
+      link: "https://drive.google.com/file/d/1VyeNMKmL_FLcOWaVjSGqGmepN-DIV7Wz/view?usp=drive_link",
+    },
+    {
+      id: 2,
       title: "Web Developer Certification",
       issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
       year: "2025",
@@ -13,7 +21,7 @@ export default function Certifications() {
       link: "https://drive.google.com/file/d/1e-1T79DOprT94HHmz4e-FNQob-jV6RUd/view?usp=drive_link",
     },
     {
-      id: 2,
+      id: 3,
       title: "Microsoft Office Specialist Excel 2019",
       issuer: "Microsoft - Certiport",
       year: "2025",
@@ -21,7 +29,7 @@ export default function Certifications() {
       link: "https://drive.google.com/file/d/1tHWPVyuI9foWzzmYJKqy0favzqQnWBe4/view?usp=drive_link",
     },
     {
-      id: 3,
+      id: 4,
       title: "Deployment Perangkat Lunak",
       issuer: "TLab",
       year: "2024",
@@ -29,7 +37,7 @@ export default function Certifications() {
       link: "https://drive.google.com/file/d/12l6AK3lUGdmZn9iyhuqmDAu127pznazq/view?usp=drive_link",
     },
     {
-      id: 4,
+      id: 5,
       title: "Microsoft Azure Data Fundamentals",
       issuer: "Microsoft",
       year: "2023",
@@ -37,7 +45,7 @@ export default function Certifications() {
       link: "https://drive.google.com/file/d/1e23_mojKC_np1G_75zLEkZnjJsmnzQeq/view?usp=drive_link",
     },
     {
-      id: 5,
+      id: 6,
       title: "Microsoft Azure Data Fundamentals",
       issuer: "Microsoft",
       year: "2023",
@@ -45,7 +53,7 @@ export default function Certifications() {
       link: "https://drive.google.com/file/d/1uR6QwdsIZk1NYhuQ3uGhwQS3yRAv7fCo/view?usp=sharing",
     },
     {
-      id: 6,
+      id: 7,
       title: "Microsoft Azure Data Fundamentals",
       issuer: "Microsoft",
       year: "2023",
@@ -53,7 +61,7 @@ export default function Certifications() {
       link: "https://drive.google.com/file/d/10eK6PK_HzuTRFcfLTn3WnFlcQRZOkrO-/view?usp=drive_link",
     },
     {
-      id: 7,
+      id: 8,
       title: "Microsoft Azure Data Fundamentals",
       issuer: "Microsoft",
       year: "2023",

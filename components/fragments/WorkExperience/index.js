@@ -69,14 +69,18 @@ export default function WorkExperience() {
                   <p className="text-xs text-[#07c6ff]">
                     Telkom Indonesia • Kebayoran Baru, Indonesia
                   </p>
-                  <p className="text-xs text-white/70">Nov 2025 - Present</p>
+                  <p className="text-xs text-white/70">Nov 2025 - May 2026</p>
                   <p className="mt-2 text-xs text-white/80">
-                    Contributed to maintaining and enhancing a production-level
-                    education web (Pijar Sekolah) by fixing bugs, implementing UI
-                    improvements, and updating components within a modular,
-                    component-based architecture. Collaborated in a Scrum team
-                    using GitLab and Taiga to deliver responsive interfaces
-                    based on product requirements.
+                    Contributed to building and maintaining production React.js
+                    applications across multiple repositories by implementing UI
+                    features, dashboard redesigns, and REST API integrations
+                    within a modular component-based architecture. Managed
+                    application state using Redux and Zustand, wrote unit tests
+                    with Jest, and collaborated with developers and product
+                    teams in Agile/Scrum workflows using GitLab and Taiga.
+                    Recognized as Best Mentee in the Program Pemagangan Nasional
+                    Kemnaker RI Batch 2 for outstanding performance and
+                    contribution during the internship program.
                   </p>
                 </div>
               </div>
