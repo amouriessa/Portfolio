@@ -17,9 +17,53 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "Tahfidz Class Memorization Assessment System",
+      title: "IELTS Typing Arena",
       longDesc:
-        "As my final-year project, I independently designed and developed a comprehensive Tahfidz Class Memorization Assessment System to streamline grading and administration for a partnered junior high school. The system was built from the ground up using the Laravel framework and features three distinct user roles: Admin, Teacher, and Student.",
+        "IELTS Typing Arena is a React-based typing trainer that integrates real-time performance analytics, browser audio synthesis, dynamic dictionary APIs, and automated vocabulary dataset generation. The application includes touch-typing guidance, adaptive review sessions, offline dictionary caching, and local leaderboard persistence while utilizing CEFR-J and Octanove academic vocabulary datasets to support IELTS preparation.",
+      image: "/images/project3.png",
+      role: [
+        "Designed the application architecture and UI.",
+        "Integrated Free Dictionary API and Web Audio API.",
+        "Deployed the application using Vercel.",
+      ],
+      tech: [
+        "React.js",
+        "Vite",
+        "TailwindCSS",
+        "JavaScript",
+        "Web Audio API",
+        "Free Dictionary API",
+      ],
+      status: "🟢 Live",
+      github: "https://github.com/amouriessa/IELTS-TypingArena.git",
+      website: "https://ssa-ielts-typing-arena.vercel.app/",
+      video: "",
+    },
+
+    {
+      id: 2,
+      title: "D.ELOiSE PO System",
+      longDesc:
+        "This project is a pre-order based e-commerce website designed to replace manual ordering processes that previously relied on competitive Google Form submissions. The system streamlines the ordering flow, providing a more structured, fair, and user-friendly experience for customers. Built with a modern tech stack, the platform focuses on usability, responsiveness, and efficient order management.",
+      image: "/images/project2.png",
+      role: [
+        "Developed the front-end using Next.js to create a responsive and user-friendly interface.",
+        "Built the back-end using Node.js to handle order processing and data management.",
+        "Designed the ordering flow to improve user experience compared to the previous manual Google Form system.",
+        "Implemented features to support structured and efficient pre-order management.",
+      ],
+      tech: ["Next.js", "Node.js", "TailwindCSS", "TypeScript", "Midtrans"],
+      status: "🚧 In Development",
+      github: "https://github.com/amouriessa/Deloise-Frontend.git",
+      website: "",
+      video: "",
+    },
+
+    {
+      id: 3,
+      title: "Me-IQRA",
+      longDesc:
+        "Me-IQRA: Menilai Iqra. A comprehensive web-based platform designed for Tahfidz schools to manage users, classes, Qur'an memorization assignments, assessments, progress tracking, and academic reports. The application supports role-based access for administrators, teachers, students, and future extensibility for additional user roles.",
       image: "/images/project1.png",
       role: [
         "System Planning: I designed the core system architecture, including the Use Case, ERD, and Activity Diagrams, to establish a clear and logical foundation.",
@@ -40,72 +84,29 @@ export default function Projects() {
       video: "https://youtu.be/KWzebUigNoM",
     },
 
-    {
-      id: 2,
-      title: "Pre-Order E-Commerce Website with Next.js & Node.js",
-      longDesc:
-        "This project is a pre-order based e-commerce website designed to replace manual ordering processes that previously relied on competitive Google Form submissions. The system streamlines the ordering flow, providing a more structured, fair, and user-friendly experience for customers. Built with a modern tech stack, the platform focuses on usability, responsiveness, and efficient order management.",
-      image: "/images/project2.png",
-      role: [
-        "Developed the front-end using Next.js to create a responsive and user-friendly interface.",
-        "Built the back-end using Node.js to handle order processing and data management.",
-        "Designed the ordering flow to improve user experience compared to the previous manual Google Form system.",
-        "Implemented features to support structured and efficient pre-order management.",
-      ],
-      tech: ["Next.js", "Node.js", "TailwindCSS", "TypeScript", "Midtrans"],
-      status: "🚧 In Development",
-      github: "https://github.com/amouriessa/Deloise-Frontend.git",
-      website: "",
-      video: "",
-    },
-
-    {
-      id: 3,
-      title: "Laravel-based Sidorejo Village Letter Request Information System",
-      longDesc:
-        "As the lead full-stack developer for this capstone project, I was responsible for the end-to-end development of a system designed to streamline the process of submitting letter requests for births and deaths in Sidorejo Village. Collaborating in a two-person team, I managed the entire web development lifecycle, from back-end logic to front-end implementation.",
-      image: "/images/project3.png",
-      role: [
-        "Developing both the front-end interface and the back-end infrastructure using the Laravel framework.",
-        "Designing and implementing the database schema and API to ensure smooth data flow and efficient system performance.",
-        "Collaborating closely with my teammate, who handled the website's design and testing, to ensure a user-friendly and bug-free final product.",
-      ],
-      tech: [
-        "Laravel",
-        "MySQL",
-        "TailwindCSS",
-        "Blade",
-        "REST API",
-        "JavaScript",
-      ],
-      github: "https://github.com/amouriessa/SIDesa-Capstone.git",
-      website: "",
-      video: "",
-    },
-
-    {
-      id: 4,
-      title: "Village Administration & Resident Information System",
-      longDesc:
-        "As the Front-End Developer in a 3-person team, I contributed to the development of a comprehensive system designed to streamline village administrative tasks, including managing resident data, births, and deaths. Our collaborative internship project allowed me to apply my skills across various stages of the development lifecycle.",
-      image: "/images/project4.png",
-      role: [
-        "System Documentation: I was responsible for documenting the system's workflows by creating detailed flowcharts and sequence diagrams to ensure clear communication and logical system design.",
-        "Front-End Development: I built a clean, responsive, and user-friendly interface that served as the primary interaction point for the end-user.",
-        "Integration Testing: I performed comprehensive integration testing to ensure seamless interaction and data flow between the front-end and back-end components of the system.",
-      ],
-      tech: [
-        "Laravel",
-        "MySQL",
-        "TailwindCSS",
-        "Blade",
-        "REST API",
-        "JavaScript",
-      ],
-      github: "https://github.com/amouriessa/Website_Magang.git",
-      website: "",
-      video: "",
-    },
+    // {
+    //   id: 4,
+    //   title: "Village Administration & Resident Information System",
+    //   longDesc:
+    //     "As the Front-End Developer in a 3-person team, I contributed to the development of a comprehensive system designed to streamline village administrative tasks, including managing resident data, births, and deaths. Our collaborative internship project allowed me to apply my skills across various stages of the development lifecycle.",
+    //   image: "/images/project4.png",
+    //   role: [
+    //     "System Documentation: I was responsible for documenting the system's workflows by creating detailed flowcharts and sequence diagrams to ensure clear communication and logical system design.",
+    //     "Front-End Development: I built a clean, responsive, and user-friendly interface that served as the primary interaction point for the end-user.",
+    //     "Integration Testing: I performed comprehensive integration testing to ensure seamless interaction and data flow between the front-end and back-end components of the system.",
+    //   ],
+    //   tech: [
+    //     "Laravel",
+    //     "MySQL",
+    //     "TailwindCSS",
+    //     "Blade",
+    //     "REST API",
+    //     "JavaScript",
+    //   ],
+    //   github: "https://github.com/amouriessa/Website_Magang.git",
+    //   website: "",
+    //   video: "",
+    // },
   ];
 
   return (
@@ -121,7 +122,7 @@ export default function Projects() {
         }}
       >
         {projects.map((item) => {
-          const short = truncate(item.longDesc, 18);
+          // const short = truncate(item.longDesc, 14);
           const shownTech = item.tech.slice(0, 3);
           const more = item.tech.length - shownTech.length;
 
@@ -148,7 +149,9 @@ export default function Projects() {
               />
 
               <h3 className="text-lg font-bold text-white">{item.title}</h3>
-              <p className="text-white/70 text-sm mt-2">{short}</p>
+              <p className="text-white/70 text-sm mt-2 line-clamp-3">
+                {item.longDesc}
+              </p>
 
               {/* STATUS */}
               {item.status && (
