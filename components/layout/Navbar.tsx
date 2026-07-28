@@ -188,7 +188,6 @@ export default function Navbar() {
               />
 
               {[
-                "home",
                 "abouts",
                 "experience",
                 "projects",
