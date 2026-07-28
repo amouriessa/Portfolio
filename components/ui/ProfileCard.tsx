@@ -161,6 +161,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     };
   }, [enableTilt]);
 
+  const pointerMoveRafId = useRef<number | null>(null);
+
   const handlePointerMove = useCallback(
     (event: PointerEvent) => {
       const card = cardRef.current;
@@ -168,13 +170,22 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
       if (!card || !wrap || !animationHandlers) return;
 
-      const rect = card.getBoundingClientRect();
-      animationHandlers.updateCardTransform(
-        event.clientX - rect.left,
-        event.clientY - rect.top,
-        card,
-        wrap
-      );
+      const clientX = event.clientX;
+      const clientY = event.clientY;
+
+      if (pointerMoveRafId.current !== null) return;
+
+      pointerMoveRafId.current = requestAnimationFrame(() => {
+        pointerMoveRafId.current = null;
+        if (!card || !wrap) return;
+        const rect = card.getBoundingClientRect();
+        animationHandlers.updateCardTransform(
+          clientX - rect.left,
+          clientY - rect.top,
+          card,
+          wrap
+        );
+      });
     },
     [animationHandlers]
   );
@@ -333,7 +344,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               className="avatar"
               src={avatarUrl}
               alt={`${name || "User"} avatar`}
-              loading="lazy"
+              fetchPriority="high"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = "none";

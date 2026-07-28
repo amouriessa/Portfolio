@@ -1,13 +1,13 @@
-"use client";
-
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/sections/HeroSection";
-import AboutSection from "@/components/sections/AboutSection";
-import WorkExperienceSection from "@/components/sections/WorkExperienceSection";
-import ProjectsSection from "@/components/sections/ProjectsSection";
-import CertificationsSection from "@/components/sections/CertificationsSection";
-import AchievementsSection from "@/components/sections/AchievementsSection";
-import ContactSection from "@/components/sections/ContactSection";
-import Footer from "@/components/layout/Footer";
+
+const AboutSection = dynamic(() => import("@/components/sections/AboutSection"));
+const WorkExperienceSection = dynamic(() => import("@/components/sections/WorkExperienceSection"));
+const ProjectsSection = dynamic(() => import("@/components/sections/ProjectsSection"));
+const CertificationsSection = dynamic(() => import("@/components/sections/CertificationsSection"));
+const AchievementsSection = dynamic(() => import("@/components/sections/AchievementsSection"));
+const ContactSection = dynamic(() => import("@/components/sections/ContactSection"));
+const Footer = dynamic(() => import("@/components/layout/Footer"));
 
 export default function Home() {
   return (
@@ -25,3 +25,4 @@ export default function Home() {
     </div>
   );
 }
+

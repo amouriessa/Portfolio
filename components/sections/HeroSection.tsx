@@ -20,15 +20,15 @@ export default function HeroSection() {
     if (titleRefHome.current) {
       gsap.fromTo(
         titleRefHome.current,
-        { opacity: 0, y: 30 },
+        { y: 20 },
         {
           opacity: 1,
           y: 0,
           duration: 0.6,
           scrollTrigger: {
             trigger: titleRefHome.current,
-            start: "top 85%",
-            toggleActions: "restart none restart reset",
+            start: "top 90%",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -37,15 +37,15 @@ export default function HeroSection() {
     if (subtitleRefHome.current) {
       gsap.fromTo(
         subtitleRefHome.current,
-        { opacity: 0, y: 20 },
+        { y: 15 },
         {
           opacity: 1,
           y: 0,
           duration: 0.6,
           scrollTrigger: {
             trigger: titleRefHome.current,
-            start: "top 85%",
-            toggleActions: "restart none restart reset",
+            start: "top 90%",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -54,7 +54,7 @@ export default function HeroSection() {
     if (badgeRef.current) {
       gsap.fromTo(
         badgeRef.current,
-        { opacity: 0, y: -20, scale: 0.9 },
+        { y: -10, scale: 0.95 },
         {
           opacity: 1,
           y: 0,
@@ -63,7 +63,7 @@ export default function HeroSection() {
           scrollTrigger: {
             trigger: badgeRef.current,
             start: "top 90%",
-            toggleActions: "restart none restart reset",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -72,7 +72,7 @@ export default function HeroSection() {
     if (buttonRef.current) {
       gsap.fromTo(
         buttonRef.current,
-        { opacity: 0, y: 20, scale: 0.9 },
+        { y: 15, scale: 0.95 },
         {
           opacity: 1,
           y: 0,
@@ -80,8 +80,8 @@ export default function HeroSection() {
           duration: 0.6,
           scrollTrigger: {
             trigger: buttonRef.current,
-            start: "top 85%",
-            toggleActions: "restart none restart reset",
+            start: "top 90%",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -90,16 +90,16 @@ export default function HeroSection() {
     if (cardRef.current) {
       gsap.fromTo(
         cardRef.current,
-        { opacity: 0, x: 50, rotateY: -15 },
+        { x: 30, rotateY: -10 },
         {
           opacity: 1,
           x: 0,
           rotateY: 0,
-          duration: 1,
+          duration: 0.8,
           scrollTrigger: {
             trigger: cardRef.current,
-            start: "top 80%",
-            toggleActions: "restart none restart reset",
+            start: "top 85%",
+            toggleActions: "play none none none",
           },
         }
       );

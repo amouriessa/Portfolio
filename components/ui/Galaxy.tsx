@@ -280,15 +280,45 @@ export default function Galaxy({
 
     const mesh = new Mesh(gl, { geometry, program });
     let animateId: number;
+    let isVisible = true;
 
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      if (isVisible && !animateId) {
+        animateId = requestAnimationFrame(update);
+      }
+    }, { threshold: 0 });
+    observer.observe(ctn);
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        isVisible = false;
+      } else {
+        isVisible = true;
+        if (!animateId) animateId = requestAnimationFrame(update);
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    let lastFrameTime = 0;
     function update(t: number) {
+      if (!isVisible) {
+        animateId = 0 as any;
+        return;
+      }
       animateId = requestAnimationFrame(update);
+
+      if (t - lastFrameTime < 33) {
+        return;
+      }
+      lastFrameTime = t;
+
       if (!disableAnimation) {
         program.uniforms.uTime.value = t * 0.001;
         program.uniforms.uStarSpeed.value = (t * 0.001 * starSpeed) / 10.0;
       }
 
-      const lerpFactor = 0.05;
+      const lerpFactor = 0.08;
       smoothMousePos.current.x += (targetMousePos.current.x - smoothMousePos.current.x) * lerpFactor;
       smoothMousePos.current.y += (targetMousePos.current.y - smoothMousePos.current.y) * lerpFactor;
 
@@ -315,23 +345,19 @@ export default function Galaxy({
     }
 
     if (mouseInteraction) {
-      ctn.removeEventListener("mousemove", handleMouseMove);
-      ctn.removeEventListener("mouseleave", handleMouseLeave);
-
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("mouseleave", handleMouseLeave);
+      window.addEventListener("mousemove", handleMouseMove, { passive: true });
+      window.addEventListener("mouseleave", handleMouseLeave, { passive: true });
     }
 
     return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       cancelAnimationFrame(animateId);
       window.removeEventListener("resize", resize);
 
       if (mouseInteraction) {
         window.removeEventListener("mousemove", handleMouseMove);
         window.removeEventListener("mouseleave", handleMouseLeave);
-
-        ctn.removeEventListener("mousemove", handleMouseMove);
-        ctn.removeEventListener("mouseleave", handleMouseLeave);
       }
       if (gl && gl.canvas && gl.canvas.parentNode === ctn) {
         ctn.removeChild(gl.canvas);

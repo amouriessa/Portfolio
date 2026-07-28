@@ -88,10 +88,15 @@ export default function Navbar() {
   }, [activeSection]);
 
   const handleNavClick = (sectionId: string): void => {
+    if (sectionId === "home" || sectionId === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setIsMobileMenuOpen(false);
+      return;
+    }
     const section = document.getElementById(sectionId);
     if (section) {
       const navbarHeight = 80;
-      const targetPosition = section.offsetTop - navbarHeight;
+      const targetPosition = Math.max(0, section.offsetTop - navbarHeight);
       window.scrollTo({ top: targetPosition, behavior: "smooth" });
     }
     setIsMobileMenuOpen(false);
@@ -105,7 +110,14 @@ export default function Navbar() {
       <nav className="backdrop-blur-md dark:bg-dark fixed w-full z-40 top-0 start-0 dark:border-gray-600">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-0 lg:mx-auto p-4 lg:px-16">
           {/* Logo dan Judul */}
-          <Link href="/" className="flex items-center space-x-3 group">
+          <Link
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick("home");
+            }}
+            className="flex items-center space-x-3 group"
+          >
             <div className="flex items-center">
               <Image
                 src={profileData.miniAvatarUrl}
