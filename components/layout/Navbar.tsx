@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Github, Linkedin } from "lucide-react";
+import { profileData } from "@/data/profileData";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -33,6 +34,7 @@ export default function Navbar() {
     const sections = [
       "home",
       "abouts",
+      "experience",
       "projects",
       "certifications",
       "awards",
@@ -95,6 +97,9 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  const githubLink = profileData.socialLinks.find((s) => s.name === "Github")?.url || "https://github.com/amouriessa/";
+  const linkedinLink = profileData.socialLinks.find((s) => s.name === "LinkedIn")?.url || "https://www.linkedin.com/in/bagas-saras-budi-prastika/";
+
   return (
     <>
       <nav className="backdrop-blur-md dark:bg-dark fixed w-full z-40 top-0 start-0 dark:border-gray-600">
@@ -103,7 +108,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="flex items-center">
               <Image
-                src="/images/logo.jpg"
+                src={profileData.miniAvatarUrl}
                 alt="Logo"
                 width={40}
                 height={40}
@@ -112,7 +117,7 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col leading-tight">
               <span className="text-white uppercase text-xl font-bold group-hover:text-[#07c6ff] transition-colors">
-                Saras
+                {profileData.cardName}
               </span>
               <span className="text-[#07c6ff] text-xs tracking-wide font-mono">
                 Portfolio
@@ -124,7 +129,7 @@ export default function Navbar() {
           <div className="flex md:order-2 items-center space-x-3">
             {/* GitHub */}
             <a
-              href="https://github.com/amouriessa/"
+              href={githubLink}
               target="_blank"
               rel="noopener noreferrer"
               className="duration-300 border focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center cursor-pointer border-[#07c6ff]/25 shadow-[0_0_15px_#00ffff] shadow-cyan-400/40 text-white bg-[#07c6ff]/60 hover:bg-cyan-500 flex items-center gap-2"
@@ -134,7 +139,7 @@ export default function Navbar() {
 
             {/* LinkedIn */}
             <a
-              href="https://www.linkedin.com/in/bagas-saras-budi-prastika/"
+              href={linkedinLink}
               target="_blank"
               rel="noopener noreferrer"
               className="duration-300 border focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center cursor-pointer border-[#07c6ff]/25 shadow-[0_0_15px_#00ffff] shadow-cyan-400/40 text-white bg-[#07c6ff]/60 hover:bg-cyan-500 flex items-center gap-2"
@@ -185,6 +190,7 @@ export default function Navbar() {
               {[
                 "home",
                 "abouts",
+                "experience",
                 "projects",
                 "certifications",
                 "awards",
@@ -208,6 +214,8 @@ export default function Navbar() {
                   >
                     {id === "abouts"
                       ? "About"
+                      : id === "experience"
+                      ? "Experience"
                       : id.charAt(0).toUpperCase() + id.slice(1)}
                   </a>
                 </li>
@@ -248,7 +256,7 @@ export default function Navbar() {
             </div>
             <div className="p-4">
               <embed
-                src="/resume.pdf"
+                src="/Resume-Bagas Saras Budi Prastika.pdf"
                 type="application/pdf"
                 className="w-full h-[80vh]"
               />

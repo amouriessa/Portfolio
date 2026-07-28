@@ -1,11 +1,12 @@
+import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export async function POST(req) {
+export async function POST(req: NextRequest) {
   try {
     const { name, email, message } = await req.json();
 
     if (!name || !email || !message) {
-      return Response.json(
+      return NextResponse.json(
         { success: false, error: "Missing fields" },
         { status: 400 }
       );
@@ -36,10 +37,10 @@ ${message}
       `,
     });
 
-    return Response.json({ success: true });
+    return NextResponse.json({ success: true });
   } catch (err) {
     console.error("Email error:", err);
-    return Response.json(
+    return NextResponse.json(
       { success: false, error: "Failed to send email" },
       { status: 500 }
     );

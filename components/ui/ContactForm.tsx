@@ -1,9 +1,10 @@
 "use client";
+
 import { useState } from "react";
 
 export default function ContactForm() {
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [status, setStatus] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,17 +18,22 @@ export default function ContactForm() {
       message: form.get("message"),
     };
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
 
-    setLoading(false);
+      setLoading(false);
 
-    if (res.ok) {
-      setStatus("success");
-      e.currentTarget.reset();
-    } else {
+      if (res.ok) {
+        setStatus("success");
+        e.currentTarget.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setLoading(false);
       setStatus("error");
     }
   };
@@ -73,7 +79,7 @@ export default function ContactForm() {
         type="submit"
         disabled={loading}
         className="w-full mt-2 px-6 py-3 rounded-full bg-[#c137ff] hover:bg-[#d048ff] 
-          text-white font-semibold shadow-[0_0_20px_#c137ff] transition"
+          text-white font-semibold shadow-[0_0_20px_#c137ff] transition cursor-pointer disabled:opacity-50"
       >
         {loading ? "Sending..." : "Send Message"}
       </button>

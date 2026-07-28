@@ -20,9 +20,7 @@ import {
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 import * as THREE from "three";
 
-// replace with your own imports, see the usage snippet for details
 const cardGLB = "../images/new-card.glb";
-const lanyard = "../images/lanyard.png";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
@@ -93,7 +91,6 @@ interface BandProps {
 }
 
 function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
-  // Using "any" for refs since the exact types depend on Rapier's internals
   const band = useRef<any>(null);
   const fixed = useRef<any>(null);
   const j1 = useRef<any>(null);

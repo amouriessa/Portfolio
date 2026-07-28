@@ -1,13 +1,14 @@
 import { useState, useRef, useCallback } from "react";
 
 export const useScrollIndicator = () => {
-  const [showTopIndicator, setShowTopIndicator] = useState(false);
-  const [showBottomIndicator, setShowBottomIndicator] = useState(false);
+  const [showTopIndicator, setShowTopIndicator] = useState<boolean>(false);
+  const [showBottomIndicator, setShowBottomIndicator] = useState<boolean>(false);
 
-  const observerRef = useRef(null);
+  const observerRef = useRef<ResizeObserver | null>(null);
 
-  const handleScroll = useCallback((e) => {
-    const el = e.target;
+  const handleScroll = useCallback((e: Event) => {
+    const el = e.target as HTMLElement;
+    if (!el) return;
     const scrollTop = el.scrollTop;
     const scrollHeight = el.scrollHeight;
     const clientHeight = el.clientHeight;
@@ -18,7 +19,7 @@ export const useScrollIndicator = () => {
   }, []);
 
   const setRef = useCallback(
-    (node) => {
+    (node: HTMLElement | null) => {
       if (!node) return;
 
       const checkScrollable = () => {
@@ -39,7 +40,7 @@ export const useScrollIndicator = () => {
         observer.disconnect();
       };
     },
-    [handleScroll],
+    [handleScroll]
   );
 
   return {

@@ -1,116 +1,99 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Globe, PlayCircle } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { projectsData } from "@/data/projectsData";
+import { ProjectItem } from "@/types/portfolio";
 
-export default function Projects() {
-  const [selected, setSelected] = useState<any>(null);
+gsap.registerPlugin(ScrollTrigger);
 
-  const truncate = (text: string, maxWords: number) => {
-    const words = text.split(" ");
-    return words.length > maxWords
-      ? words.slice(0, maxWords).join(" ") + "..."
-      : text;
+interface ProjectsSectionProps {
+  onClose?: () => void;
+}
+
+export default function ProjectsSection({
+  onClose,
+}: ProjectsSectionProps = {}) {
+  const [selected, setSelected] = useState<ProjectItem | null>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  const handleCloseModal = () => {
+    setSelected(null);
+    if (onClose) onClose();
   };
 
-  const projects = [
-    {
-      id: 1,
-      title: "IELTS Typing Arena",
-      longDesc:
-        "IELTS Typing Arena is a React-based typing trainer that integrates real-time performance analytics, browser audio synthesis, dynamic dictionary APIs, and automated vocabulary dataset generation. The application includes touch-typing guidance, adaptive review sessions, offline dictionary caching, and local leaderboard persistence while utilizing CEFR-J and Octanove academic vocabulary datasets to support IELTS preparation.",
-      image: "/images/project3.png",
-      role: [
-        "Designed the application architecture and UI.",
-        "Integrated Free Dictionary API and Web Audio API.",
-        "Deployed the application using Vercel.",
-      ],
-      tech: [
-        "React.js",
-        "Vite",
-        "TailwindCSS",
-        "JavaScript",
-        "Web Audio API",
-        "Free Dictionary API",
-      ],
-      status: "🟢 Live",
-      github: "https://github.com/amouriessa/IELTS-TypingArena.git",
-      website: "https://ssa-ielts-typing-arena.vercel.app/",
-      video: "",
-    },
+  const titleRefProjects = useRef<HTMLHeadingElement>(null);
+  const subtitleRefProjects = useRef<HTMLParagraphElement>(null);
 
-    {
-      id: 2,
-      title: "D.ELOiSE PO System",
-      longDesc:
-        "This project is a pre-order based e-commerce website designed to replace manual ordering processes that previously relied on competitive Google Form submissions. The system streamlines the ordering flow, providing a more structured, fair, and user-friendly experience for customers. Built with a modern tech stack, the platform focuses on usability, responsiveness, and efficient order management.",
-      image: "/images/project2.png",
-      role: [
-        "Developed the front-end using Next.js to create a responsive and user-friendly interface.",
-        "Built the back-end using Node.js to handle order processing and data management.",
-        "Designed the ordering flow to improve user experience compared to the previous manual Google Form system.",
-        "Implemented features to support structured and efficient pre-order management.",
-      ],
-      tech: ["Next.js", "Node.js", "TailwindCSS", "TypeScript", "Midtrans"],
-      status: "🚧 In Development",
-      github: "https://github.com/amouriessa/Deloise-Frontend.git",
-      website: "",
-      video: "",
-    },
+  // Close modal on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
-    {
-      id: 3,
-      title: "Me-IQRA",
-      longDesc:
-        "Me-IQRA: Menilai Iqra. A comprehensive web-based platform designed for Tahfidz schools to manage users, classes, Qur'an memorization assignments, assessments, progress tracking, and academic reports. The application supports role-based access for administrators, teachers, students, and future extensibility for additional user roles.",
-      image: "/images/project1.png",
-      role: [
-        "System Planning: I designed the core system architecture, including the Use Case, ERD, and Activity Diagrams, to establish a clear and logical foundation.",
-        "Full-Stack Development: I developed all aspects of the website, from the back-end logic and database to the front-end user interface.",
-        "Quality Assurance: I performed black-box testing to ensure the system was functional, secure, and ready for real-world use.",
-      ],
-      tech: [
-        "Laravel",
-        "MySQL",
-        "TailwindCSS",
-        "Blade",
-        "REST API",
-        "JavaScript",
-      ],
-      status: "🚀 Deploying",
-      github: "https://github.com/amouriessa/Manajemen-Penilaian.git",
-      website: "",
-      video: "https://youtu.be/KWzebUigNoM",
-    },
+  useEffect(() => {
+    if (titleRefProjects.current) {
+      gsap.fromTo(
+        titleRefProjects.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          scrollTrigger: {
+            trigger: titleRefProjects.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
 
-    // {
-    //   id: 4,
-    //   title: "Village Administration & Resident Information System",
-    //   longDesc:
-    //     "As the Front-End Developer in a 3-person team, I contributed to the development of a comprehensive system designed to streamline village administrative tasks, including managing resident data, births, and deaths. Our collaborative internship project allowed me to apply my skills across various stages of the development lifecycle.",
-    //   image: "/images/project4.png",
-    //   role: [
-    //     "System Documentation: I was responsible for documenting the system's workflows by creating detailed flowcharts and sequence diagrams to ensure clear communication and logical system design.",
-    //     "Front-End Development: I built a clean, responsive, and user-friendly interface that served as the primary interaction point for the end-user.",
-    //     "Integration Testing: I performed comprehensive integration testing to ensure seamless interaction and data flow between the front-end and back-end components of the system.",
-    //   ],
-    //   tech: [
-    //     "Laravel",
-    //     "MySQL",
-    //     "TailwindCSS",
-    //     "Blade",
-    //     "REST API",
-    //     "JavaScript",
-    //   ],
-    //   github: "https://github.com/amouriessa/Website_Magang.git",
-    //   website: "",
-    //   video: "",
-    // },
-  ];
+    if (subtitleRefProjects.current) {
+      gsap.fromTo(
+        subtitleRefProjects.current,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          scrollTrigger: {
+            trigger: titleRefProjects.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+  }, []);
 
   return (
-    <>
+    <section
+      id="projects"
+      className="min-h-screen flex flex-col md:flex-col items-center px-4 md:px-8 pt-16 md:pt-20"
+    >
+      <h1
+        ref={titleRefProjects}
+        className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#c137ff] via-[#00c1ff] to-[#07c6ff] bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(0,193,255,0.6)]"
+      >
+        My Project
+      </h1>
+      <p
+        ref={subtitleRefProjects}
+        className="sm:text-sm md:text-lg mb-8 max-w-xl text-white text-center"
+      >
+        Showcasing my best work that represents my journey as a Full-Stack Web
+        Developer.
+      </p>
+
       {/* PROJECT GRID */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-4 w-full max-w-6xl"
@@ -121,8 +104,7 @@ export default function Projects() {
           show: { transition: { staggerChildren: 0.12 } },
         }}
       >
-        {projects.map((item) => {
-          // const short = truncate(item.longDesc, 14);
+        {projectsData.map((item) => {
           const shownTech = item.tech.slice(0, 3);
           const more = item.tech.length - shownTech.length;
 
@@ -145,6 +127,7 @@ export default function Projects() {
             >
               <img
                 src={item.image}
+                alt={item.title}
                 className="w-full h-40 object-cover rounded-xl mb-4"
               />
 
@@ -187,6 +170,7 @@ export default function Projects() {
                     href={item.github}
                     onClick={(e) => e.stopPropagation()}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="text-white/80 hover:text-white transition"
                   >
                     <Github size={20} />
@@ -198,6 +182,7 @@ export default function Projects() {
                     href={item.website}
                     onClick={(e) => e.stopPropagation()}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="text-white/80 hover:text-white transition"
                   >
                     <Globe size={20} />
@@ -209,6 +194,7 @@ export default function Projects() {
                     href={item.video}
                     onClick={(e) => e.stopPropagation()}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="text-white/80 hover:text-white transition"
                   >
                     <PlayCircle size={20} />
@@ -228,8 +214,11 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={handleCloseModal}
           >
             <motion.div
+              ref={modalRef}
+              onClick={(e) => e.stopPropagation()}
               className="bg-white/10 border border-cyan-400 shadow-[0_0_60px_8px_rgba(34,211,238,0.5)]
                    rounded-2xl p-8 w-full max-w-3xl relative text-white 
                    max-h-[90vh] overflow-y-auto neon-scroll"
@@ -241,11 +230,8 @@ export default function Projects() {
               {/* CLOSE BUTTON */}
               <div className="flex justify-end mb-4">
                 <button
-                  className="p-2 rounded-full 
-               bg-white/10 border border-cyan-300 
-               hover:bg-white/20 transition
-               shadow-[0_0_12px_rgba(34,211,238,0.6)]"
-                  onClick={() => setSelected(null)}
+                  className="p-2 rounded-full bg-white/10 border border-cyan-300 hover:bg-white/20 transition shadow-[0_0_12px_rgba(34,211,238,0.6)] cursor-pointer"
+                  onClick={handleCloseModal}
                 >
                   <span className="text-cyan-300 text-lg font-bold">✕</span>
                 </button>
@@ -254,6 +240,7 @@ export default function Projects() {
               {/* IMAGE */}
               <img
                 src={selected.image}
+                alt={selected.title}
                 className="w-full h-56 object-cover rounded-xl mb-6"
               />
 
@@ -302,6 +289,7 @@ export default function Projects() {
                   <a
                     href={selected.github}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="p-2 rounded-lg bg-white/10 border border-cyan-300
                          hover:bg-white/20 transition
                          shadow-[0_0_10px_rgba(34,211,238,0.5)]"
@@ -314,6 +302,7 @@ export default function Projects() {
                   <a
                     href={selected.website}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="p-2 rounded-lg bg-white/10 border border-cyan-300
                          hover:bg-white/20 transition
                          shadow-[0_0_10px_rgba(34,211,238,0.5)]"
@@ -326,8 +315,9 @@ export default function Projects() {
                   <a
                     href={selected.video}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="p-2 rounded-lg bg-white/10 border border-cyan-300
-         hover:bg-white/20 transition shadow-[0_0_10px_rgba(34,211,238,0.5)]"
+                         hover:bg-white/20 transition shadow-[0_0_10px_rgba(34,211,238,0.5)]"
                   >
                     <PlayCircle size={22} className="text-cyan-300" />
                   </a>
@@ -337,6 +327,6 @@ export default function Projects() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </section>
   );
 }

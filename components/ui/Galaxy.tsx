@@ -304,12 +304,6 @@ export default function Galaxy({
     ctn.appendChild(gl.canvas);
 
     function handleMouseMove(e: MouseEvent) {
-      // const rect = ctn.getBoundingClientRect();
-      // const x = (e.clientX - rect.left) / rect.width;
-      // const y = 1.0 - (e.clientY - rect.top) / rect.height;
-      // targetMousePos.current = { x, y };
-      // targetMouseActive.current = 1.0;
-
       const x = e.clientX / window.innerWidth;
       const y = 1.0 - e.clientY / window.innerHeight;
       targetMousePos.current = { x, y };
@@ -320,11 +314,6 @@ export default function Galaxy({
       targetMouseActive.current = 0.0;
     }
 
-    // if (mouseInteraction) {
-    //   ctn.addEventListener('mousemove', handleMouseMove);
-    //   ctn.addEventListener('mouseleave', handleMouseLeave);
-    // }
-
     if (mouseInteraction) {
       ctn.removeEventListener("mousemove", handleMouseMove);
       ctn.removeEventListener("mouseleave", handleMouseLeave);
@@ -333,16 +322,6 @@ export default function Galaxy({
       window.addEventListener("mouseleave", handleMouseLeave);
     }
 
-    // return () => {
-    //   cancelAnimationFrame(animateId);
-    //   window.removeEventListener('resize', resize);
-    //   if (mouseInteraction) {
-    //     ctn.removeEventListener('mousemove', handleMouseMove);
-    //     ctn.removeEventListener('mouseleave', handleMouseLeave);
-    //   }
-    //   ctn.removeChild(gl.canvas);
-    //   gl.getExtension('WEBGL_lose_context')?.loseContext();
-    // };
     return () => {
       cancelAnimationFrame(animateId);
       window.removeEventListener("resize", resize);
@@ -389,5 +368,4 @@ export default function Galaxy({
       {...rest}
     />
   );
-
 }
